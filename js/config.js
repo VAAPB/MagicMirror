@@ -1,5 +1,5 @@
 var config = {
-    lang: 'nl',
+    lang: 'en',
     time: {
         timeFormat: 12
     },
@@ -7,11 +7,11 @@ var config = {
         //change weather params here:
         //units: metric or imperial
         params: {
-            q: 'Baarn,Netherlands',
-            units: 'metric',
+            q: 'Woodstock,VA',
+            units: 'imperial',
             // if you want a different lang for the weather that what is set above, change it here
-            lang: 'nl',
-            APPID: 'YOUR_FREE_OPENWEATHER_API_KEY'
+            lang: 'en',
+            APPID: '5ce64a1fd92eb3ef9d0cbbbef3cf1a54'
         }
     },
     compliments: {
@@ -28,16 +28,16 @@ var config = {
             'Looking good today!'
         ],
         evening: [
-            'Wow, you look hot!',
+            'Wow, you look great!',
             'You look nice!',
-            'Hi, sexy!'
+            'Hello beautiful!'
         ]
     },
     calendar: {
         maximumEntries: 10,
-        url: "https://p01-calendarws.icloud.com/ca/subscribe/1/n6x7Farxpt7m9S8bHg1TGArSj7J6kanm_2KEoJPL5YIAk3y70FpRo4GyWwO-6QfHSY5mXtHcRGVxYZUf7U3HPDOTG5x0qYnno1Zr_VuKH2M"
+        url: "https://www.google.com/calendar/ical/underdevit.com_46n0kch52ebo5295k07fpdu31g%40group.calendar.google.com/public/basic.ics"
     },
     news: {
-        feed: 'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml'
+        feed: 'http://www.nvdaily.com/news/shenandoah/feed/'
     }
 }
