@@ -38,6 +38,6 @@ var config = {
         url: "https://www.google.com/calendar/ical/underdevit.com_46n0kch52ebo5295k07fpdu31g%40group.calendar.google.com/public/basic.ics"
     },
     news: {
-        feed: 'http://www.nvdaily.com/news/shenandoah/feed/'
+        feed: 'http://rss.cnn.com/rss/cnn_topstories.rss'
     }
-}
+};
