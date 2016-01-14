@@ -1,40 +1,64 @@
-<html>
+<!DOCTYPE html>
+<?php $gitHash = trim(`git rev-parse HEAD`) ?>
+<html lang="en">
 <head>
 	<title>Magic Mirror</title>
-	<style type="text/css">
-		<?php include('css/main.css') ?>
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/weather-icons.css">
-	<script type="text/javascript">
-		var gitHash = '<?php echo trim(`git rev-parse HEAD`) ?>';
+    <script type="text/javascript">
+		var gitHash = '<?php echo $gitHash ?>';
 	</script>
-	<meta name="google" value="notranslate" />
+    <meta name="google" value="notranslate" />
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 </head>
 <body>
-
-	<div class="top left"><div class="date small dimmed"></div><div class="time"></div><div class="calendar xxsmall"></div></div>
-	<div class="top right"><div class="windsun small dimmed"></div><div class="temp"></div><div class="forecast small dimmed"></div></div>
-	<div class="center-ver center-hor"><!-- <div class="dishwasher light">Vaatwasser is klaar!</div> --></div>
-	<div class="lower-third center-hor"><div class="compliment light"></div></div>
-	<div class="bottom center-hor"><div class="news medium"></div></div>
-
+    <div id="wrapper">
+	   <div class="top left">
+           <div class="date small dimmed"></div>
+           <div class="time"></div>
+           <div class="calendar xxsmall"></div>
+        </div>
+	   <div class="top right">
+           <div class="windsun small dimmed"></div>
+           <div class="temp"></div>
+           <div class="forecast small dimmed"></div>
+        </div>
+	   <div class="center-ver center-hor">
+           <div id="content"></div>
+        </div>
+	    <div class="lower-third center-hor">
+            <div id="compliment" class="compliment light"></div>
+        </div>
+	   <div class="bottom center-hor">
+           <div class="news medium"></div>
+        </div>
+        <div id="audio"></div>
 </div>
-
-<script src="js/jquery.js"></script>
-<script src="js/jquery.feedToJSON.js"></script>
-<script src="js/ical_parser.js"></script>
-<script src="js/moment-with-locales.min.js"></script>
-<script src="js/config.js"></script>
-<script src="js/rrule.js"></script>
-<script src="js/version/version.js" type="text/javascript"></script>
-<script src="js/calendar/calendar.js" type="text/javascript"></script>
-<script src="js/compliments/compliments.js" type="text/javascript"></script>
-<script src="js/weather/weather.js" type="text/javascript"></script>
-<script src="js/time/time.js" type="text/javascript"></script>
-<script src="js/news/news.js" type="text/javascript"></script>
-<script src="js/main.js?nocache=<?php echo md5(microtime()) ?>"></script>
-<!-- <script src="js/socket.io.min.js"></script> -->
+    
+<?php
+$scripts = [
+    'js/jquery.js',
+    'js/jquery.feedToJSON.js',
+    'js/ical_parser.js',
+    'js/moment-with-locales.min.js',
+    'js/voice/annyang.min.js',
+    'js/voice/annyang.js',
+    'js/voice/responsiveVoice.js',
+    'js/voice/commands.js',
+    'js/config.js',
+    'js/rrule.js',
+    'js/version/version.js',
+    'js/calendar/calendar.js',
+    'js/compliments/compliments.js',
+    'js/weather/weather.js',
+    'js/time/time.js',
+    'js/news/news.js',
+    'js/main.js'
+];
+foreach($scripts as $v) {
+    echo '<script src="'.$v.'?nocache='.$gitHash.'"></script>'.PHP_EOL;
+}
+?>    
 
 </body>
 </html>
