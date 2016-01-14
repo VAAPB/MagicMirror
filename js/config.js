@@ -41,3 +41,5 @@ var config = {
         feed: 'http://rss.cnn.com/rss/cnn_topstories.rss'
     }
 };
+
+responsiveVoice.setDefaultVoice("US English Female");
