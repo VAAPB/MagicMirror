@@ -39,6 +39,22 @@ var config = {
     },
     news: {
         feed: 'http://rss.cnn.com/rss/cnn_topstories.rss'
+    },
+    speech: {
+        // https://github.com/TalAter/annyang/blob/master/docs/README.md#languages
+        lang: 'en-US',
+        // if you want a master-command before any others commands, you can set it here
+        masterCommand: 'Mirror',
+        // your commands
+        commands: {
+            'what can i say': function () { speech.help(); },
+            'go home': function () { speech.home(); },
+            'refresh': function () { location.reload(); },
+            'go to sleep': function () { speech.sleep(); },
+            'wake up': function () { speech.sleep(); },
+            'hide news': function () { $(".bottom").is(":visible"); },
+            'show news': function () { $(".bottom").is(":hidden"); },
+        }
     }
 };
 
