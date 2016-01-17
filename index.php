@@ -11,7 +11,7 @@
     <meta name="google" value="notranslate" />
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 </head>
-<body>
+<body> 
     <div id="wrapper">
 	   <div class="top left">
            <div class="date small dimmed"></div>
@@ -24,7 +24,7 @@
            <div class="forecast small dimmed"></div>
         </div>
 	   <div class="center-ver center-hor">
-           <div id="content"></div>
+           <div id="content" class="xsmall"></div>
         </div>
 	    <div class="lower-third center-hor">
             <div id="compliment" class="compliment light"></div>
@@ -44,8 +44,8 @@ $scripts = [
     'js/voice/annyang.min.js',
     'js/voice/annyang.js',
     'js/voice/responsiveVoice.js',
-    'js/voice/commands.js',
     'js/config.js',
+    'js/voice/speech.js',
     'js/rrule.js',
     'js/version/version.js',
     'js/calendar/calendar.js',
@@ -53,7 +53,7 @@ $scripts = [
     'js/weather/weather.js',
     'js/time/time.js',
     'js/news/news.js',
-    'js/main.js'
+    'js/main.js',
 ];
 foreach($scripts as $v) {
     echo '<script src="'.$v.'?nocache='.$gitHash.'"></script>'.PHP_EOL;
