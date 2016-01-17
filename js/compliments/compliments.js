@@ -54,17 +54,16 @@ compliments.updateCompliment = function () {
 	// Randomly select a location
 	var _randomIndex = Math.floor(Math.random() * _list.length);
 	compliments.currentCompliment = _list[_randomIndex];
-
-	$('.compliment').updateWithText(compliments.currentCompliment, compliments.fadeInterval);
-
+    // Test to see if content div is empty
+    if( $('#content').is(':empty') ) {
+	  $('.compliment').updateWithText(compliments.currentCompliment, compliments.fadeInterval);
+  }
 }
 
 compliments.init = function () {
+	  this.updateCompliment();
 
-	this.updateCompliment();
-
-	this.intervalId = setInterval(function () {
-		this.updateCompliment();
-	}.bind(this), this.updateInterval)
-
+	  this.intervalId = setInterval(function () {
+	  	this.updateCompliment();
+	  }.bind(this), this.updateInterval)
 }

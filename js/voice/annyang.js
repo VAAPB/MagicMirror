@@ -5,7 +5,7 @@
 //! https://www.TalAter.com/annyang/
 
 (function (undefined) {
-  "use strict";
+    "use strict";
 
   /**
    * # Quick Tutorial, Intro and Demos
@@ -18,10 +18,10 @@
    */
 
   // Save a reference to the global object (window in the browser)
-  var root = this;
+    var root = this;
 
   // Get the SpeechRecognition object, while handling browser prefixes
-  var SpeechRecognition = root.SpeechRecognition ||
+    var SpeechRecognition = root.SpeechRecognition ||
                           root.webkitSpeechRecognition ||
                           root.mozSpeechRecognition ||
                           root.msSpeechRecognition ||
@@ -29,29 +29,29 @@
 
   // Check browser support
   // This is done as early as possible, to make it as fast as possible for unsupported browsers
-  if (!SpeechRecognition) {
-    root.annyang = null;
-    return undefined;
-  }
+    if (!SpeechRecognition) {
+        root.annyang = null;
+        return undefined;
+    }
 
-  var commandsList = [];
-  var recognition;
-  var callbacks = { start: [], error: [], end: [], result: [], resultMatch: [], resultNoMatch: [], errorNetwork: [], errorPermissionBlocked: [], errorPermissionDenied: [] };
-  var autoRestart;
-  var lastStartedAt = 0;
-  var debugState = false;
-  var debugStyle = 'font-weight: bold; color: #00f;';
-  var pauseListening = false;
-  var isListening = false;
+    var commandsList = [];
+    var recognition;
+    var callbacks = { start: [], error: [], end: [], result: [], resultMatch: [], resultNoMatch: [], errorNetwork: [], errorPermissionBlocked: [], errorPermissionDenied: [] };
+    var autoRestart;
+    var lastStartedAt = 0;
+    var debugState = false;
+    var debugStyle = 'font-weight: bold; color: #00f;';
+    var pauseListening = false;
+    var isListening = false;
 
   // The command matching code is a modified version of Backbone.Router by Jeremy Ashkenas, under the MIT license.
-  var optionalParam = /\s*\((.*?)\)\s*/g;
-  var optionalRegex = /(\(\?:[^)]+\))\?/g;
-  var namedParam    = /(\(\?)?:\w+/g;
-  var splatParam    = /\*\w+/g;
-  var escapeRegExp  = /[\-{}\[\]+?.,\\\^$|#]/g;
-  var commandToRegExp = function(command) {
-    command = command.replace(escapeRegExp, '\\$&')
+    var optionalParam = /\s*\((.*?)\)\s*/g;
+    var optionalRegex = /(\(\?:[^)]+\))\?/g;
+    var namedParam    = /(\(\?)?:\w+/g;
+    var splatParam    = /\*\w+/g;
+    var escapeRegExp  = /[\-{}\[\]+?.,\\\^$|#]/g;
+    var commandToRegExp = function(command) {
+        command = command.replace(escapeRegExp, '\\$&')
                   .replace(optionalParam, '(?:$1)?')
                   .replace(namedParam, function(match, optional) {
                     return optional ? match : '([^\\s]+)';
